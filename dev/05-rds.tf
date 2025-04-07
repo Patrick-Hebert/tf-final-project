@@ -8,7 +8,7 @@ module "rds" {
 
   name                 = "rds-${var.tag_env}" #"rds"
   engine               = "aurora-mysql"       #"aurora-postgresql"
-  engine_mode          = "serverless"         #"serverless"
+  engine_mode          = "provisioned"         #"serverless"
   cluster_family       = "aurora-mysql5.7"    #"aurora-postgresql10"
   cluster_size         = 0                    #0
   cluster_type         = "regional"           #"regional"
