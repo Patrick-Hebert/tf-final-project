@@ -9,7 +9,7 @@ module "rds" {
   name                 = "rds-${var.tag_env}" #"rds"
   engine               = "aurora-mysql"       #"aurora-postgresql"
   engine_mode          = "provisioned"         #"provisioned"
-  cluster_family       = "aurora-mysql5.7"    #"aurora-postgresql10"
+  cluster_family       = "aurora-mysql8.0"    #"aurora mysql 8.0"
   cluster_size         = 0                    #0
   cluster_type         = "regional"           #"regional"
   admin_user           = random_password.rds_admin_username.result
