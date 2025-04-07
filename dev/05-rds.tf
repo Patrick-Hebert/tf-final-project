@@ -8,7 +8,7 @@ module "rds" {
 
   name                 = "rds-${var.tag_env}" #"rds"
   engine               = "aurora-mysql"       #"aurora-postgresql"
-  engine_mode          = "provisioned"         #"serverless"
+  engine_mode          = "provisioned"         #"provisioned"
   cluster_family       = "aurora-mysql5.7"    #"aurora-postgresql10"
   cluster_size         = 0                    #0
   cluster_type         = "regional"           #"regional"
@@ -21,15 +21,6 @@ module "rds" {
   subnets              = module.vpc.database_subnets
   enable_http_endpoint = true
 
-  scaling_configuration = [
-    {
-      auto_pause               = true
-      max_capacity             = 16
-      min_capacity             = 1
-      seconds_until_auto_pause = 300
-      timeout_action           = "ForceApplyCapacityChange"
-    }
-  ]
   tags = {
     Name = "${var.tag_env}-rds"
   }
